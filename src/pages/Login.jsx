@@ -19,7 +19,7 @@ function Login() {
     <div className="grid w-screen h-screen grid-cols-3 dark:bg-gray-800">
       <div className="col-span-1 py-8 mx-3 bg-lime-300 dark:bg-lime-600">
         <div className="flex items-center mb-10 space-x-3 border-b-2 border-amber-300 ">
-          <Logo onlyLogo={false} />
+          <Logo onlyLogo={true} />
           <h1 className="px-3 py-2 font-serif text-5xl font-bold text-transparent md:px-8 bg-gradient-to-r from-amber-600 to-amber-400 bg-clip-text">
             Log In
           </h1>
