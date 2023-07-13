@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
+import { login } from "../services/apiAuth";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -10,8 +14,24 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = await login(data);
+    if (!userInfo) {
+      reset();
+      return;
+    }
+
+    switch (userInfo.clientType) {
+      case "CUSTOMER":
+        navigate("/customer");
+        break;
+      case "COMPANY":
+        navigate("/company");
+        break;
+      case "ADMIN":
+        navigate("/admin");
+        break;
+    }
     reset();
   };
 
@@ -31,7 +51,6 @@ function Login() {
           <input
             className="px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
             placeholder="email"
-            defaultValue="moshe@gmail.com"
             {...register("email", { required: true })}
           />
           {errors.email && (
@@ -40,7 +59,6 @@ function Login() {
           <input
             className="px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
             placeholder="password"
-            defaultValue="1234"
             {...register("password", { required: true })}
           />
           {errors.password && (

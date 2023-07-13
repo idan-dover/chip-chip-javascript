@@ -1,6 +1,7 @@
+import { toast } from "react-hot-toast";
 import { LOGIN_URL } from "./backend";
 
-export async function apiLogin(user) {
+export async function login(user) {
   try {
     const res = await fetch(LOGIN_URL, {
       method: "POST",
@@ -13,9 +14,10 @@ export async function apiLogin(user) {
     if (!res.ok) throw Error();
 
     const data = await res.json();
-    console.log(data);
+    localStorage.setItem("auth", JSON.stringify(data));
+    console.log(JSON.parse(localStorage.getItem("auth")));
     return data;
   } catch {
-    throw Error("Failed to log in");
+    toast.error("Failed to log in");
   }
 }
