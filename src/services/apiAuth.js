@@ -12,9 +12,10 @@ export async function apiLogin(user) {
 
     if (!res.ok) throw Error();
 
-    const { data } = await res.json();
+    const data = await res.json();
+    console.log(data);
     return data;
   } catch {
-    throw Error("Failed creating your order");
+    throw Error("Failed to log in");
   }
 }

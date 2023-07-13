@@ -6,6 +6,7 @@ import Companies from "../ui/Companies";
 import Customers from "../ui/Customers";
 import Dashboard from "../ui/Dashboard";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import CustomerLayout from "../features/customer/CustomerLayout";
 
 function AppRouter() {
   return (
@@ -20,6 +21,7 @@ function AppRouter() {
           <Route path="companies" element={<Companies />} />
           <Route path="customers" element={<Customers />} />
         </Route>
+        <Route path="customer" element={<CustomerLayout />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
