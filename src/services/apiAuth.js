@@ -15,6 +15,7 @@ export async function login(user) {
 
     const data = await res.json();
     localStorage.setItem("auth", JSON.stringify(data));
+    //TODO: remove the log
     console.log(JSON.parse(localStorage.getItem("auth")));
     return data;
   } catch {

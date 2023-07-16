@@ -7,7 +7,7 @@ import AppToaster from "./libs/AppToaster";
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AppRouter />;
+      <AppRouter />
       <ReactQueryDevtools initialIsOpen={false} />
       <AppToaster />
     </QueryClientProvider>

@@ -3,9 +3,11 @@ import Logo from "../ui/Logo";
 import Button from "../ui/Button";
 import { login } from "../services/apiAuth";
 import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
 
 function Login() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const {
     register,
@@ -15,13 +17,15 @@ function Login() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const userInfo = await login(data);
-    if (!userInfo) {
+    const userAuthInfo = await login(data);
+    if (!userAuthInfo) {
       reset();
       return;
     }
 
-    switch (userInfo.clientType) {
+    queryClient.setQueryData(["auth"], userAuthInfo);
+
+    switch (userAuthInfo.clientType) {
       case "CUSTOMER":
         navigate("/customer");
         break;
@@ -50,6 +54,8 @@ function Login() {
         >
           <input
             className="px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
+            //TODO: remove default value
+            defaultValue="moshe@gmail.com"
             placeholder="email"
             {...register("email", { required: true })}
           />
@@ -58,6 +64,8 @@ function Login() {
           )}
           <input
             className="px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
+            //TODO: remove default value
+            defaultValue="1234"
             placeholder="password"
             {...register("password", { required: true })}
           />

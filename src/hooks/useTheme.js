@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 function useTheme() {
-  const [theme, setTheme] = useState("light");
+  const userTheme = JSON.parse(localStorage.getItem("theme")) ?? "light";
+  const [theme, setTheme] = useState(userTheme);
 
   useEffect(() => {
     theme === "dark"
@@ -9,7 +10,17 @@ function useTheme() {
       : document.documentElement.classList.remove("dark");
   }, [theme]);
 
-  const handleSwitchTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+  const handleSwitchTheme = () =>
+    setTheme((prevTheme) => {
+      if (prevTheme === "dark") {
+        localStorage.setItem("theme", JSON.stringify("light"));
+        return "light";
+      } else {
+        localStorage.setItem("theme", JSON.stringify("dark"));
+        return "dark";
+      }
+    });
+  // localStorage.setItem("theme", JSON.stringify(theme));
 
   return [theme, handleSwitchTheme];
 }
