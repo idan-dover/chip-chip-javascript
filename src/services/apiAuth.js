@@ -11,14 +11,14 @@ export async function login(user) {
       },
     });
 
-    if (!res.ok) throw Error();
+    if (!res.ok) throw new Error(res.text());
 
     const data = await res.json();
     localStorage.setItem("auth", JSON.stringify(data));
     //TODO: remove the log
     console.log(JSON.parse(localStorage.getItem("auth")));
     return data;
-  } catch {
+  } catch (err) {
     toast.error("Failed to log in");
   }
 }

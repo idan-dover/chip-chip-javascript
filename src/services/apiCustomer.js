@@ -20,6 +20,40 @@ export async function getCustomerDetails() {
   }
 }
 
+export async function getCustomerUnsoldCoupons() {
+  try {
+    const token = JSON.parse(localStorage.getItem("auth")).token;
+    const res = await fetch(`${CUSTOMER_URL}/coupon/purchase`, {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+    });
+    if (!res.ok) throw Error();
+
+    const data = await res.json();
+    return data;
+  } catch {
+    toast.error("Failed to fetch coupons");
+  }
+}
+
+export async function purchaseCoupon(couponId) {
+  try {
+    const token = JSON.parse(localStorage.getItem("auth")).token;
+    const res = await fetch(`${CUSTOMER_URL}/coupon/purchase/${couponId}`, {
+      method: "PUT",
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    if (!res.ok) throw Error();
+  } catch (err) {
+    throw new Error(err);
+  }
+}
+
 export async function filterCouponsByCategory(category) {
   try {
     const token = JSON.parse(localStorage.getItem("auth")).token;

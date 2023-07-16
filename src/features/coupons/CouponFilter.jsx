@@ -3,13 +3,16 @@ import Button from "../../ui/Button";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
-function CouponFilter({ coupons }) {
+function CouponFilter({ coupons, type }) {
   const { register, handleSubmit } = useForm();
   const queryClient = useQueryClient();
   const [filterMethod, setFilterMethod] = useState("category");
 
   const resetCoupons = function () {
-    const { coupons } = queryClient.getQueryData(["info"]);
+    const coupons =
+      type === "info"
+        ? queryClient.getQueryData(["info"]).coupons
+        : queryClient.getQueryData(["unsold"]);
 
     queryClient.setQueryData(["coupons"], coupons);
   };

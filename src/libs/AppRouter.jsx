@@ -8,7 +8,7 @@ import Dashboard from "../ui/Dashboard";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import CustomerLayout from "../features/customer/CustomerLayout";
 import CustomerInfo from "../features/customer/CustomerInfo";
-import CouponList from "../features/coupons/CouponList";
+import CustomerUnsoldCoupons from "../features/customer/CustomerUnsoldCoupons";
 
 function AppRouter() {
   return (
@@ -26,7 +26,7 @@ function AppRouter() {
         <Route path="customer" element={<CustomerLayout />}>
           <Route index element={<Navigate replace to="info" />} />
           <Route path="info" element={<CustomerInfo />} />
-          <Route path="buy" element={<CouponList />} />
+          <Route path="buy" element={<CustomerUnsoldCoupons />} />
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
