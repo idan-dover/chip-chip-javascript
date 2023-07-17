@@ -102,11 +102,14 @@ function Purchase() {
       </Modal.Open>
       <Modal.Window name="purchase">
         <div className="px-3 py-2 ml-auto">
-          <p className="px-3 py-2 font-mono text-red-200 text-md dark:text-red-50">
+          <p className="px-3 py-2 font-mono text-gray-800 text-md dark:text-gray-50">
             Are you sure you want to purchase this coupon?
           </p>
-          <p className="px-3 py-4 font-mono text-lime-500 text-md dark:text-lime-300">
-            It will cost you {price}&#36;
+          <p className="px-3 py-4 font-mono text-gray-800 text-md dark:text-gray-50">
+            It will cost you{" "}
+            <span className="text-lime-500 dark:text-lime-100">
+              {price}&#36;
+            </span>
           </p>
           <Button
             variation="round"
