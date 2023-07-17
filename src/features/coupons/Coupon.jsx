@@ -3,6 +3,8 @@ import Card from "../../ui/Card";
 import { convertSQLDateToNormalDate } from "../../utils/dates";
 import Button from "../../ui/Button";
 import usePurchase from "../customer/usePurchase";
+import Modal from "../../ui/Modal";
+import { FaCartShopping } from "react-icons/fa6";
 
 const CouponContext = createContext();
 
@@ -82,21 +84,40 @@ function Price() {
 
 function Purchase() {
   const { purchase, isLoading } = usePurchase();
-  const { id } = useContext(CouponContext);
+  const { id, price } = useContext(CouponContext);
 
   return (
-    <div className="px-3 py-2 ml-auto">
-      <p className="px-3 py-2 font-mono text-red-500 text-md dark:text-red-200">
-        Are you sure you want to purchase this coupon?
-      </p>
-      <Button
-        variation="round"
-        onClick={() => purchase(id)}
-        disabled={isLoading}
-      >
-        yes
-      </Button>
-    </div>
+    <Modal>
+      <Modal.Open opens="purchase">
+        <div className="px-3 py-2 ml-auto">
+          <Button
+            variation="round"
+            onClick={() => {
+              return;
+            }}
+          >
+            <FaCartShopping />
+          </Button>
+        </div>
+      </Modal.Open>
+      <Modal.Window name="purchase">
+        <div className="px-3 py-2 ml-auto">
+          <p className="px-3 py-2 font-mono text-red-200 text-md dark:text-red-50">
+            Are you sure you want to purchase this coupon?
+          </p>
+          <p className="px-3 py-4 font-mono text-lime-500 text-md dark:text-lime-300">
+            It will cost you {price}&#36;
+          </p>
+          <Button
+            variation="round"
+            onClick={() => purchase(id)}
+            disabled={isLoading}
+          >
+            yes
+          </Button>
+        </div>
+      </Modal.Window>
+    </Modal>
   );
 }
 
