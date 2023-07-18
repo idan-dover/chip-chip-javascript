@@ -55,7 +55,7 @@ function Login() {
           <input
             className="px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
             //TODO: remove default value
-            defaultValue="moshe@gmail.com"
+            defaultValue="info@nike.com"
             placeholder="email"
             {...register("email", { required: true })}
           />
@@ -74,6 +74,7 @@ function Login() {
           )}
           <select
             name="clientType"
+            defaultValue="COMPANY"
             className="w-full p-2.5 bg-white border rounded-md shadow-sm outline-none focus:ring-0 focus:outline-none "
             {...register("clientType", { required: true })}
           >

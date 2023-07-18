@@ -1,9 +1,9 @@
-import { CUSTOMER_URL } from "./URLs";
+import { COMPANY_URL } from "./URLs";
 
-export async function getCustomerDetails() {
+export async function getCompanyDetails() {
   try {
     const token = JSON.parse(localStorage.getItem("auth")).token;
-    const res = await fetch(CUSTOMER_URL, {
+    const res = await fetch(COMPANY_URL, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -22,35 +22,38 @@ export async function getCustomerDetails() {
   }
 }
 
-export async function getCustomerUnsoldCoupons() {
+export async function addCoupon(coupon) {
   try {
     const token = JSON.parse(localStorage.getItem("auth")).token;
-    const res = await fetch(`${CUSTOMER_URL}/coupon/purchase`, {
-      method: "GET",
+    const res = await fetch(`${COMPANY_URL}/coupon`, {
+      method: "POST",
       headers: {
         Authorization: token,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify(coupon),
     });
+
     if (!res.ok) {
       const err = await res.json();
       throw new Error(err.description);
     }
-
-    const data = await res.json();
-    return data;
   } catch (err) {
     throw new Error(err);
   }
 }
 
-export async function purchaseCoupon(couponId) {
+export async function updateCoupon(data) {
+  const { couponId, coupon } = data;
   try {
     const token = JSON.parse(localStorage.getItem("auth")).token;
-    const res = await fetch(`${CUSTOMER_URL}/coupon/purchase/${couponId}`, {
+    const res = await fetch(`${COMPANY_URL}/coupon/${couponId}`, {
       method: "PUT",
       headers: {
         Authorization: token,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify(coupon),
     });
 
     if (!res.ok) {
@@ -62,11 +65,11 @@ export async function purchaseCoupon(couponId) {
   }
 }
 
-export async function filterCouponsByCategory(category) {
+export async function deleteCoupon(couponId) {
   try {
     const token = JSON.parse(localStorage.getItem("auth")).token;
-    const res = await fetch(`${CUSTOMER_URL}/category?val=${category}`, {
-      method: "GET",
+    const res = await fetch(`${COMPANY_URL}/coupon/${couponId}`, {
+      method: "DELETE",
       headers: {
         Authorization: token,
       },
@@ -76,31 +79,6 @@ export async function filterCouponsByCategory(category) {
       const err = await res.json();
       throw new Error(err.description);
     }
-
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    throw new Error(err);
-  }
-}
-
-export async function filterCouponsByMaxPrice(price) {
-  try {
-    const token = JSON.parse(localStorage.getItem("auth")).token;
-    const res = await fetch(`${CUSTOMER_URL}/price?val=${price}`, {
-      method: "GET",
-      headers: {
-        Authorization: token,
-      },
-    });
-
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.description);
-    }
-
-    const data = await res.json();
-    return data;
   } catch (err) {
     throw new Error(err);
   }

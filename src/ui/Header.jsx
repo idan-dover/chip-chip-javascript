@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import { FaSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa6";
 import CustomerHeader from "../features/customer/CustomerHeader";
+import CompanyHeader from "../features/company/CompanyHeader";
 
 function Header() {
   const [theme, onClick] = useTheme();
@@ -25,6 +26,7 @@ function Header() {
           </Button>
         )}
         {userType === "CUSTOMER" && <CustomerHeader />}
+        {userType === "COMPANY" && <CompanyHeader />}
       </div>
     </header>
   );

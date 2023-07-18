@@ -38,6 +38,21 @@ function CouponList({ type }) {
         </div>
       );
 
+    case "edit":
+      return (
+        <div className="grid grid-cols-2 gap-2 px-3 py-4 md:gap-4 md:grid-cols-4">
+          {coupons &&
+            coupons.map((coupon) => (
+              <Coupon key={coupon.id} coupon={coupon}>
+                <Coupon.Base />
+                <Coupon.Dates />
+                <Coupon.Price />
+                <Coupon.Edit />
+              </Coupon>
+            ))}
+        </div>
+      );
+
     default:
       toast.error("Can't seem to load your coupons");
   }

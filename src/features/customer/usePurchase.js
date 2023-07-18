@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { purchaseCoupon } from "../../services/apiCustomer";
 
-export function usePurchase() {
+function usePurchase() {
   const queryClient = useQueryClient();
 
   const { mutate: purchase, isLoading } = useMutation({
@@ -13,7 +13,7 @@ export function usePurchase() {
         queryKey: ["unsold"],
       });
     },
-    onError: () => toast.error("Couldn't purchase coupon"),
+    onError: (err) => toast.error(err.message),
   });
 
   return { isLoading, purchase };
