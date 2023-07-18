@@ -8,7 +8,7 @@ function CustomerInfo() {
   const queryClient = useQueryClient();
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader variation="area" />;
   }
   const { firstName, lastName, coupons } = info;
 

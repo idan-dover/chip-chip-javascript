@@ -13,7 +13,7 @@ export function usePurchase() {
         queryKey: ["unsold"],
       });
     },
-    onError: (err) => toast.error(err.message),
+    onError: () => toast.error("Couldn't purchase coupon"),
   });
 
   return { isLoading, purchase };

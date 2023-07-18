@@ -49,8 +49,8 @@ export async function purchaseCoupon(couponId) {
     });
 
     if (!res.ok) throw Error();
-  } catch (err) {
-    throw new Error(err);
+  } catch {
+    throw new Error("can't purchase");
   }
 }
 

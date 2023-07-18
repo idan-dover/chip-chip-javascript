@@ -17,6 +17,7 @@ function useTheme() {
         return "light";
       } else {
         localStorage.setItem("theme", JSON.stringify("dark"));
+
         return "dark";
       }
     });
