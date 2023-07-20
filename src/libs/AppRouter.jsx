@@ -8,8 +8,14 @@ const Login = lazy(() => import("../pages/Login"));
 const Page404 = lazy(() => import("../pages/Page404"));
 const AppLayout = lazy(() => import("../pages/../ui/AppLayout"));
 
-const Companies = lazy(() => import("../features/admin/Companies"));
-const Customers = lazy(() => import("../features/admin/Customers"));
+const Companies = lazy(() => import("../features/admin/companies/Companies"));
+const CreateCompanyForm = lazy(() =>
+  import("../features/admin/companies/CreateCompanyForm")
+);
+const Customers = lazy(() => import("../features/admin/customers/Customers"));
+const CreateCustomerForm = lazy(() =>
+  import("../features/admin/customers/CreateCustomerForm")
+);
 const Dashboard = lazy(() => import("../features/admin/Dashboard"));
 
 const CompanyInfo = lazy(() => import("../features/company/CompanyInfo"));
@@ -42,7 +48,9 @@ function AppRouter() {
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="companies" element={<Companies />} />
+            <Route path="companies/create" element={<CreateCompanyForm />} />
             <Route path="customers" element={<Customers />} />
+            <Route path="customers/create" element={<CreateCustomerForm />} />
           </Route>
 
           <Route

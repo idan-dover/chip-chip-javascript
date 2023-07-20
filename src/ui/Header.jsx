@@ -6,6 +6,7 @@ import { FaSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa6";
 import CustomerHeader from "../features/customer/CustomerHeader";
 import CompanyHeader from "../features/company/CompanyHeader";
+import AdminHeader from "../features/admin/AdminHeader";
 
 function Header() {
   const [theme, onClick] = useTheme();
@@ -27,6 +28,7 @@ function Header() {
         )}
         {userType === "CUSTOMER" && <CustomerHeader />}
         {userType === "COMPANY" && <CompanyHeader />}
+        {userType === "ADMIN" && <AdminHeader />}
       </div>
     </header>
   );
