@@ -16,8 +16,7 @@ function CreateCouponForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    console.log(errors.title);
+  const onSubmit = (data) => {
     if (!data) {
       reset();
     }
@@ -50,8 +49,10 @@ function CreateCouponForm() {
         className="flex flex-col m-5 space-y-6"
       >
         <div className="flex items-center space-x-2 justify-normal">
+          <label htmlFor="title">title:</label>
           <input
             className="w-2/3 px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
+            id="title"
             placeholder="title"
             {...register("title", { required: "This field is required" })}
           />

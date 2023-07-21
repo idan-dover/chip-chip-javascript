@@ -13,3 +13,5 @@ export function useCustomers() {
 
   return { isLoadingCustomers, error, customers };
 }
+
+export default useCustomers;
