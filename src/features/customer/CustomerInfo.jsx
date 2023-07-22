@@ -3,6 +3,7 @@ import Loader from "../../ui/Loader";
 import { useCustomerInfo } from "./useCustomerInfo";
 import CouponFilter from "../coupons/CouponFilter";
 import { useQueryClient } from "@tanstack/react-query";
+import EmptyView from "../../ui/EmptyView";
 function CustomerInfo() {
   const { isLoading, info } = useCustomerInfo();
   const queryClient = useQueryClient();
@@ -11,6 +12,10 @@ function CustomerInfo() {
     return <Loader variation="area" />;
   }
   const { firstName, lastName, coupons } = info;
+
+  if (coupons.length === 0) {
+    return <EmptyView linkTo="/customer/buy" linkText="buy some coupons" />;
+  }
 
   queryClient.setQueryData(["coupons"], coupons);
   return (

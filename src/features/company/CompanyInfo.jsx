@@ -3,6 +3,7 @@ import { useCompanyInfo } from "./useCompanyInfo";
 import Loader from "../../ui/Loader";
 import CouponFilter from "../coupons/CouponFilter";
 import CouponList from "../coupons/CouponList";
+import EmptyView from "../../ui/EmptyView";
 
 function CompanyInfo() {
   const { isLoading, info } = useCompanyInfo();
@@ -12,6 +13,12 @@ function CompanyInfo() {
     return <Loader variation="area" />;
   }
   const { name, coupons } = info;
+
+  if (coupons.length === 0) {
+    return (
+      <EmptyView linkTo="/company/create" linkText="create a new coupon" />
+    );
+  }
 
   queryClient.setQueryData(["coupons"], coupons);
   return (

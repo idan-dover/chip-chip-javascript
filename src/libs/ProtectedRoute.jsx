@@ -7,7 +7,7 @@ function ProtectedRoute({ children }) {
     return children;
   }
 
-  return <Navigate replace to="/home" />;
+  return <Navigate replace to="/login" />;
 }
 
 export default ProtectedRoute;

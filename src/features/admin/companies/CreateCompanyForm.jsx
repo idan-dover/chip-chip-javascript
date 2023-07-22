@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useCreateCompany from "./useCreateCompany";
+import { validateEmail } from "../../../utils/expressions";
 import Button from "../../../ui/Button";
 
 function CreateCompanyForm() {
@@ -11,12 +12,21 @@ function CreateCompanyForm() {
     register,
     handleSubmit,
     reset,
+    setError,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     if (!data) {
       reset();
+    }
+
+    if (!validateEmail(data.email)) {
+      setError("email", {
+        type: "manual",
+        message: "this is not an email",
+      });
+      return;
     }
 
     createCompany(data);
@@ -80,7 +90,7 @@ function CreateCompanyForm() {
         </div>
         <div className="flex items-center justify-end w-2/3 px-4 py-3 space-x-7">
           <Button type="reset" variation="secondary" disabled={isLoading}>
-            Cancel
+            clear
           </Button>
           <Button
             variation="primary"

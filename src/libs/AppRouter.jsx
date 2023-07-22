@@ -6,6 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 
 const Login = lazy(() => import("../pages/Login"));
 const Page404 = lazy(() => import("../pages/Page404"));
+const About = lazy(() => import("../pages/About"));
 const AppLayout = lazy(() => import("../pages/../ui/AppLayout"));
 
 const Companies = lazy(() => import("../features/admin/companies/Companies"));
@@ -36,6 +37,7 @@ function AppRouter() {
           <Route path="/" element={<Navigate replace to="home" />} />
           <Route path="home" element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="about" element={<About />} />
 
           <Route
             path="admin"

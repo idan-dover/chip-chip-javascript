@@ -49,7 +49,6 @@ function CreateCouponForm() {
         className="flex flex-col m-5 space-y-6"
       >
         <div className="flex items-center space-x-2 justify-normal">
-          <label htmlFor="title">title:</label>
           <input
             className="w-2/3 px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
             id="title"
@@ -61,20 +60,23 @@ function CreateCouponForm() {
           )}
         </div>
 
-        <select
-          className="w-2/3 p-2.5 bg-white border rounded-md shadow-sm outline-none focus:ring-0 focus:outline-none "
-          {...register("category", { required: "This field is required" })}
-        >
-          <option value="FOOD">food</option>
-          <option value="HEALTH">health</option>
-          <option value="SPORT">sport</option>
-          <option value="ELECTRONICS">electronics</option>
-          <option value="VACATION">vacation</option>
-          <option value="FURNITURE">furniture</option>
-          <option value="CARS">cars</option>
-          <option value="CLOTHING">clothing</option>
-          <option value="GROCERIES">groceries</option>
-        </select>
+        <div className="flex items-center space-x-2 justify-normal">
+          <select
+            id="category"
+            className="w-2/3 p-2.5 bg-white border rounded-md shadow-sm outline-none focus:ring-0 focus:outline-none "
+            {...register("category", { required: "This field is required" })}
+          >
+            <option value="FOOD">food</option>
+            <option value="HEALTH">health</option>
+            <option value="SPORT">sport</option>
+            <option value="ELECTRONICS">electronics</option>
+            <option value="VACATION">vacation</option>
+            <option value="FURNITURE">furniture</option>
+            <option value="CARS">cars</option>
+            <option value="CLOTHING">clothing</option>
+            <option value="GROCERIES">groceries</option>
+          </select>
+        </div>
 
         <div className="flex items-center space-x-2 justify-normal">
           <textarea
@@ -147,7 +149,7 @@ function CreateCouponForm() {
 
         <div className="flex items-center justify-end w-2/3 px-4 py-3 space-x-7">
           <Button type="reset" variation="secondary" disabled={isLoading}>
-            Cancel
+            clear
           </Button>
           <Button
             variation="primary"

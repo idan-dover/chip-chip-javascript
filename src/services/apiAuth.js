@@ -11,12 +11,15 @@ export async function login(user) {
       },
     });
 
-    if (!res.ok) throw new Error(res.text());
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.description);
+    }
 
     const data = await res.json();
     localStorage.setItem("auth", JSON.stringify(data));
     return data;
   } catch (err) {
-    toast.error("Failed to log in");
+    toast.error(err.message);
   }
 }

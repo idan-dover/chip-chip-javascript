@@ -3,6 +3,7 @@ import Loader from "../../ui/Loader";
 import { useCustomerUnsold } from "./useCustomerUnsold";
 import CouponFilter from "../coupons/CouponFilter";
 import CouponList from "../coupons/CouponList";
+import EmptyView from "../../ui/EmptyView";
 
 function CustomerUnsoldCoupons() {
   const { isLoading, unSoldCoupons } = useCustomerUnsold();
@@ -13,6 +14,11 @@ function CustomerUnsoldCoupons() {
   }
 
   queryClient.setQueryData(["coupons"], unSoldCoupons);
+
+  if (unSoldCoupons.length === 0) {
+    return <EmptyView linkTo="/customer/info" linkText="back to your info" />;
+  }
+
   return (
     <div className="px-4 py-4 dark:text-gray-50">
       <CouponFilter coupons={unSoldCoupons} type="purchase" />

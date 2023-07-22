@@ -4,6 +4,7 @@ import Button from "../ui/Button";
 import { login } from "../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
+import loginPng from "../assets/loginPng.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -54,8 +55,6 @@ function Login() {
         >
           <input
             className="px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
-            //TODO: remove default value
-            defaultValue="admin@admin.com"
             placeholder="email"
             {...register("email", { required: true })}
           />
@@ -64,9 +63,8 @@ function Login() {
           )}
           <input
             className="px-4 py-2 text-sm transition-all duration-300 border rounded-md border-stone-200 placeholder:text-stone-400 focus:outline-none focus:ring-0 md:px-6 md:py-3"
-            //TODO: remove default value
-            defaultValue="1234"
             placeholder="password"
+            type="password"
             {...register("password", { required: true })}
           />
           {errors.password && (
@@ -74,7 +72,6 @@ function Login() {
           )}
           <select
             name="clientType"
-            defaultValue="ADMIN"
             className="w-full p-2.5 bg-white border rounded-md shadow-sm outline-none focus:ring-0 focus:outline-none "
             {...register("clientType", { required: true })}
           >
@@ -99,11 +96,16 @@ function Login() {
       </div>
       <div className="col-span-2 px-3 py-4">
         <h1 className="px-3 py-2 mb-8 font-serif text-5xl font-bold uppercase md:px-8 text-lime-500 dark:text-lime-300 bg-clip-text">
-          Happy to see you back
+          Happy to see you came back
         </h1>
         <h2 className="px-3 py-2 mb-8 font-serif text-2xl font-bold uppercase md:px-8 text-lime-500 dark:text-lime-300 bg-clip-text">
-          Which chick are you
+          Which chick are you?
         </h2>
+        <img
+          src={loginPng}
+          alt="chicks"
+          className="h-auto max-h-[70vh] max-w-50vw"
+        />
       </div>
     </div>
   );

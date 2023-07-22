@@ -1,4 +1,5 @@
 import Button from "../../ui/Button";
+import LogoutButton from "../../ui/LogoutButton";
 
 function CompanyHeader() {
   return (
@@ -11,6 +12,7 @@ function CompanyHeader() {
           create
         </span>
       </Button>
+      <LogoutButton />
     </>
   );
 }

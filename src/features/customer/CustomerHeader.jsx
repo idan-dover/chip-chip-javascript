@@ -1,4 +1,5 @@
 import Button from "../../ui/Button";
+import LogoutButton from "../../ui/LogoutButton";
 
 function CustomerHeader() {
   return (
@@ -9,6 +10,7 @@ function CustomerHeader() {
       <Button to="/customer/buy" variation="primary">
         <span>buy</span>
       </Button>
+      <LogoutButton />
     </>
   );
 }

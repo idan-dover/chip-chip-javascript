@@ -36,7 +36,6 @@ function CompaniesTable({ companies }) {
   );
 }
 
-//TODO: add the part of the update
 function EditCompany({ company }) {
   const { remove, isLoading } = useDeleteCompany();
   return (

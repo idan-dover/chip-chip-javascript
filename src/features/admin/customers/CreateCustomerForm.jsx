@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../ui/Button";
+import { validateEmail } from "../../../utils/expressions";
 import useCreateCustomer from "./useCreateCustomer";
 
 function CreateCustomerForm() {
@@ -11,12 +12,21 @@ function CreateCustomerForm() {
     register,
     handleSubmit,
     reset,
+    setError,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     if (!data) {
       reset();
+    }
+
+    if (!validateEmail(data.email)) {
+      setError("email", {
+        type: "manual",
+        message: "this is not an email",
+      });
+      return;
     }
 
     createCustomer(data);
@@ -96,7 +106,7 @@ function CreateCustomerForm() {
         </div>
         <div className="flex items-center justify-end w-2/3 px-4 py-3 space-x-7">
           <Button type="reset" variation="secondary" disabled={isLoading}>
-            Cancel
+            clear
           </Button>
           <Button
             variation="primary"
