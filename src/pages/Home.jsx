@@ -4,10 +4,10 @@ import Footer from "../ui/Footer";
 
 function Home() {
   return (
-    <div className="grid h-screen w-screen grid-rows-[auto_1fr_auto] dark:bg-gray-800 ">
+    <div className="grid h-screen w-screen overflow-scroll grid-rows-[auto_1fr_auto] dark:bg-gray-800 ">
       <Header />
       <section>
-        <div className="flex flex-col items-center m-16 ">
+        <div className="flex flex-col items-center py-5 m-5">
           <h3 className="inline-block px-3 pb-8 text-2xl text-transparent bg-gradient-to-r from-amber-600 via-lime-500 to-amber-600 bg-clip-text">
             Everything is cheaper with chip chip
           </h3>
@@ -30,19 +30,19 @@ function Home() {
           </h1>
         </div>
 
-        <div className="flex items-center justify-around m-16 ">
+        <div className="flex items-center justify-around py-5 m-5 ">
           <img
-            className="max-w-lg px-6 transition-all duration-300  h-42 w-96 rounded-3xl filter blur hover:blur-0"
+            className="max-w-[30vw] h-auto max-h-[30vh]  px-6 transition-all duration-300  filter blur hover:blur-0"
             src="https://makewebbetter.com/wp-content/uploads/2020/07/eCommerce-digital-coupons-1024x647.jpg"
             alt="coupon image"
           />
           <img
-            className="h-auto max-w-md px-6 transition-all duration-300 h-42 w-96 rounded-3xl filter blur hover:blur-0"
+            className="max-w-[30vw] h-auto max-h-[30vh]  px-6 transition-all duration-300  filter blur hover:blur-0"
             src="https://boostiny.com/wp-content/uploads/2022/07/Frame-24.jpg"
             alt="coupon image"
           />
           <img
-            className="h-auto max-w-md px-6 transition-all duration-300 h-42 w-96 rounded-3xl filter blur hover:blur-0"
+            className="max-w-[30vw] h-auto max-h-[30vh]  px-6 transition-all duration-300  filter blur hover:blur-0"
             src="https://img.freepik.com/premium-vector/yellow-discount-coupon-set-half-price-10-20-50-70-80-off-offers-template-premium-special-price-coupons-best-promo-retail-pricing-vouchers_153791-510.jpg"
             alt="coupon image"
           />

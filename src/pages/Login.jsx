@@ -46,7 +46,7 @@ function Login() {
   };
 
   return (
-    <div className="grid w-screen h-screen grid-cols-3 dark:bg-gray-800">
+    <div className="grid w-screen h-screen grid-cols-3 overflow-y-scroll dark:bg-gray-800">
       <div className="col-span-1 py-8 mx-3 bg-lime-300 dark:bg-lime-600">
         <div className="flex items-center mb-10 space-x-3 border-b-2 border-amber-300 ">
           <Logo onlyLogo={true} />
