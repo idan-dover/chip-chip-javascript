@@ -1,4 +1,5 @@
 import { ADMIN_URL } from "./URLs";
+//TODO: finish replacing apiAdmin to axios
 
 export async function getAllCompanies() {
   try {

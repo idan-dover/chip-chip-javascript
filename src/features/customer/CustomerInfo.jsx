@@ -11,6 +11,7 @@ function CustomerInfo() {
   if (isLoading) {
     return <Loader variation="area" />;
   }
+
   const { firstName, lastName, coupons } = info;
 
   if (coupons.length === 0) {
