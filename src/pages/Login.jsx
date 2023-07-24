@@ -5,10 +5,12 @@ import { login } from "../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import loginPng from "../assets/loginPng.png";
+import { useState } from "react";
 
 function Login() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -18,9 +20,11 @@ function Login() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    setIsLoading(true);
     const userAuthInfo = await login(data);
     if (!userAuthInfo) {
       reset();
+      setIsLoading(false);
       return;
     }
 
@@ -37,6 +41,7 @@ function Login() {
         navigate("/admin");
         break;
     }
+    setIsLoading(false);
     reset();
   };
 
@@ -88,6 +93,7 @@ function Login() {
               onClick={() => {
                 return;
               }}
+              disabled={isLoading}
             >
               Login
             </Button>
