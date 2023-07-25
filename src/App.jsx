@@ -1,10 +1,10 @@
 import { QueryClientProvider } from "@tanstack/react-query";
-import AppRouter from "./libs/AppRouter";
+import AppRouter from "./libs/router/AppRouter";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import queryClient from "./libs/tanStack";
 import AppToaster from "./libs/AppToaster";
 
-//TODO: check for error handling in axios and why toast does not work with the useQuery
+//TODO: create more components to make everything readable
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

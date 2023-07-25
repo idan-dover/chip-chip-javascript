@@ -1,7 +1,9 @@
-export const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
+export const fromCamelCaseToSentence = (camelCase) => {
+  const words = camelCase.replace(/([a-z])([A-Z])/g, "$1 $2").split(/[\s_-]+/);
+
+  words[0] = words[0][0].toUpperCase() + words[0].slice(1);
+
+  const sentence = words.join(" ");
+
+  return sentence;
 };

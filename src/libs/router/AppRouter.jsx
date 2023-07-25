@@ -1,32 +1,36 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import FullPageLoader from "../components/FullPageLoader";
-import Home from "../pages/Home";
+import FullPageLoader from "../../components/FullPageLoader";
+import Home from "../../pages/Home";
 import ProtectedRoute from "./ProtectedRoute";
 
-const Login = lazy(() => import("../pages/Login"));
-const Page404 = lazy(() => import("../pages/Page404"));
-const About = lazy(() => import("../pages/About"));
-const AppLayout = lazy(() => import("../pages/../components/AppLayout"));
+const Login = lazy(() => import("../../pages/Login"));
+const Page404 = lazy(() => import("../../pages/Page404"));
+const About = lazy(() => import("../../pages/About"));
+const AppLayout = lazy(() => import("../../components/AppLayout"));
 
-const Companies = lazy(() => import("../features/admin/companies/Companies"));
+const Companies = lazy(() =>
+  import("../../features/admin/companies/Companies")
+);
 const CreateCompanyForm = lazy(() =>
-  import("../features/admin/companies/CreateCompanyForm")
+  import("../../features/admin/companies/CreateCompanyForm")
 );
-const Customers = lazy(() => import("../features/admin/customers/Customers"));
+const Customers = lazy(() =>
+  import("../../features/admin/customers/Customers")
+);
 const CreateCustomerForm = lazy(() =>
-  import("../features/admin/customers/CreateCustomerForm")
+  import("../../features/admin/customers/CreateCustomerForm")
 );
-const Dashboard = lazy(() => import("../features/admin/Dashboard"));
+const Dashboard = lazy(() => import("../../features/admin/Dashboard"));
 
-const CompanyInfo = lazy(() => import("../features/company/CompanyInfo"));
+const CompanyInfo = lazy(() => import("../../features/company/CompanyInfo"));
 const CreateCouponForm = lazy(() =>
-  import("../features/company/CreateCouponForm")
+  import("../../features/company/CreateCouponForm")
 );
 
-const CustomerInfo = lazy(() => import("../features/customer/CustomerInfo"));
+const CustomerInfo = lazy(() => import("../../features/customer/CustomerInfo"));
 const CustomerUnsoldCoupons = lazy(() =>
-  import("../features/customer/CustomerUnsoldCoupons")
+  import("../../features/customer/CustomerUnsoldCoupons")
 );
 
 function AppRouter() {

@@ -11,11 +11,11 @@ function Logo({ onlyLogo = false }) {
       />
       {!onlyLogo && (
         <div className="flex flex-col ">
-          <span className="px-3 py-0 font-serif text-2xl tracking-widest  text-gray-800 uppercase dark:text-gray-50  ">
+          <span className="px-3 py-0 font-serif text-2xl tracking-widest text-gray-800 uppercase dark:text-gray-50">
             chip
           </span>
 
-          <span className="px-3 py-0 font-serif text-2xl tracking-widest text-gray-800 uppercase dark:text-gray-50  ">
+          <span className="px-3 py-0 font-serif text-2xl tracking-widest text-gray-800 uppercase dark:text-gray-50">
             chip
           </span>
         </div>
