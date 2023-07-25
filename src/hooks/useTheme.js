@@ -21,7 +21,6 @@ function useTheme() {
         return "dark";
       }
     });
-  // localStorage.setItem("theme", JSON.stringify(theme));
 
   return [theme, handleSwitchTheme];
 }

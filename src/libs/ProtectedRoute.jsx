@@ -1,13 +1,14 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { Navigate } from "react-router-dom";
 
-function ProtectedRoute({ children }) {
-  const queryClient = useQueryClient();
-  if (queryClient.getQueryData(["auth"])) {
-    return children;
+function ProtectedRoute({ children, protect }) {
+  const clientType = JSON.parse(
+    sessionStorage.getItem("auth")
+  )?.clientType.toLowerCase();
+  if (clientType !== protect) {
+    return <Navigate replace to="/login" />;
   }
 
-  return <Navigate replace to="/login" />;
+  return children;
 }
 
 export default ProtectedRoute;

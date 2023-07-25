@@ -1,48 +1,20 @@
 import { useForm } from "react-hook-form";
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
-import { login } from "../services/apiAuth";
-import { useNavigate } from "react-router-dom";
-import { useQueryClient } from "@tanstack/react-query";
 import loginPng from "../assets/loginPng.png";
-import { useState } from "react";
+import useLogin from "../hooks/useLogin";
 
 function Login() {
-  const navigate = useNavigate();
-  const queryClient = useQueryClient();
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, loginToApp } = useLogin();
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
-    setIsLoading(true);
-    const userAuthInfo = await login(data);
-    if (!userAuthInfo) {
-      reset();
-      setIsLoading(false);
-      return;
-    }
-
-    queryClient.setQueryData(["auth"], userAuthInfo);
-
-    switch (userAuthInfo.clientType) {
-      case "CUSTOMER":
-        navigate("/customer");
-        break;
-      case "COMPANY":
-        navigate("/company");
-        break;
-      case "ADMIN":
-        navigate("/admin");
-        break;
-    }
-    setIsLoading(false);
-    reset();
+    loginToApp(data);
   };
 
   return (

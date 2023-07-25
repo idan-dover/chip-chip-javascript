@@ -3,16 +3,13 @@ import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
 function LogoutButton() {
-  //1. clear auth in query client
-  //1. clear auth in localstorage
-  //2.navigate to home
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const handleClick = function () {
     queryClient.clear();
-    localStorage.removeItem("auth");
-    navigate("/home");
+    sessionStorage.removeItem("auth");
+    navigate("/login");
   };
 
   return (

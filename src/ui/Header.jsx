@@ -1,4 +1,3 @@
-import { useQueryClient } from "@tanstack/react-query";
 import useTheme from "../hooks/useTheme";
 import Button from "./Button";
 import Logo from "./Logo";
@@ -11,8 +10,7 @@ import AdminHeader from "../features/admin/AdminHeader";
 function Header() {
   const [theme, onClick] = useTheme();
 
-  const queryClient = useQueryClient();
-  const userType = queryClient.getQueryData(["auth"])?.clientType;
+  const userType = JSON.parse(sessionStorage.getItem("auth"))?.clientType;
 
   return (
     <header className="flex items-center justify-between px-4 py-3 font-semibold bg-lime-500 dark:bg-lime-600">

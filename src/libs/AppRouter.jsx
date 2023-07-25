@@ -42,7 +42,7 @@ function AppRouter() {
           <Route
             path="admin"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute protect="admin">
                 <AppLayout />
               </ProtectedRoute>
             }
@@ -58,7 +58,7 @@ function AppRouter() {
           <Route
             path="company"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute protect="company">
                 <AppLayout />
               </ProtectedRoute>
             }
@@ -71,7 +71,7 @@ function AppRouter() {
           <Route
             path="customer"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute protect="customer">
                 <AppLayout />
               </ProtectedRoute>
             }
