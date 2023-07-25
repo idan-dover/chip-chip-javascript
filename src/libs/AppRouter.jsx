@@ -1,13 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import FullPageLoader from "../ui/FullPageLoader";
+import FullPageLoader from "../components/FullPageLoader";
 import Home from "../pages/Home";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Login = lazy(() => import("../pages/Login"));
 const Page404 = lazy(() => import("../pages/Page404"));
 const About = lazy(() => import("../pages/About"));
-const AppLayout = lazy(() => import("../pages/../ui/AppLayout"));
+const AppLayout = lazy(() => import("../pages/../components/AppLayout"));
 
 const Companies = lazy(() => import("../features/admin/companies/Companies"));
 const CreateCompanyForm = lazy(() =>

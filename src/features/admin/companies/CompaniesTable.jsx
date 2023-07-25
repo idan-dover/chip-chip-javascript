@@ -1,7 +1,7 @@
 import { FaPen, FaTrashCan } from "react-icons/fa6";
 import useDeleteCompany from "./useDeleteCompany";
-import Button from "../../../ui/Button";
-import Modal from "../../../ui/Modal";
+import Button from "../../../components/Button";
+import Modal from "../../../components/Modal";
 import UpdateCompanyForm from "./UpdateCompanyForm";
 
 function CompaniesTable({ companies }) {

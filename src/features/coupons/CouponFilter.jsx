@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import Button from "../../ui/Button";
+import Button from "../../components/Button";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 

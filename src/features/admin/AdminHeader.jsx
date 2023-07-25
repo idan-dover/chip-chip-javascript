@@ -1,5 +1,5 @@
-import Button from "../../ui/Button";
-import LogoutButton from "../../ui/LogoutButton";
+import Button from "../../components/Button";
+import LogoutButton from "../../components/LogoutButton";
 
 function AdminHeader() {
   return (

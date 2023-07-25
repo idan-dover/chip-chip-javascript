@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../../ui/Button";
-import Loader from "../../../ui/Loader";
+import Button from "../../../components/Button";
+import Loader from "../../../components/Loader";
 import useCustomers from "./useCustomers";
 import CustomersTable from "./CustomersTable";
 

@@ -1,9 +1,9 @@
 import { useQueryClient } from "@tanstack/react-query";
-import Loader from "../../ui/Loader";
+import Loader from "../../components/Loader";
 import { useCustomerUnsold } from "./useCustomerUnsold";
 import CouponFilter from "../coupons/CouponFilter";
 import CouponList from "../coupons/CouponList";
-import EmptyView from "../../ui/EmptyView";
+import EmptyView from "../../components/EmptyView";
 
 function CustomerUnsoldCoupons() {
   const { isLoading, unSoldCoupons } = useCustomerUnsold();

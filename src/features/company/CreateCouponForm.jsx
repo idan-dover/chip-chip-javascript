@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import Button from "../../ui/Button";
+import Button from "../../components/Button";
 import useCreateCoupon from "./useCreateCoupon";
 import { getSqlDateOfToday } from "../../utils/dates";
 import { useNavigate } from "react-router-dom";

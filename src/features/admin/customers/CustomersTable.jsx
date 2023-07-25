@@ -1,6 +1,6 @@
 import { FaPen, FaTrashCan } from "react-icons/fa6";
-import Button from "../../../ui/Button";
-import Modal from "../../../ui/Modal";
+import Button from "../../../components/Button";
+import Modal from "../../../components/Modal";
 import useDeleteCustomer from "./useDeleteCustomer";
 import UpdateCustomerForm from "./UpdateCustomerForm";
 

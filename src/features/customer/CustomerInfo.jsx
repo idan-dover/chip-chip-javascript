@@ -1,9 +1,9 @@
 import CouponList from "../coupons/CouponList";
-import Loader from "../../ui/Loader";
+import Loader from "../../components/Loader";
 import { useCustomerInfo } from "./useCustomerInfo";
 import CouponFilter from "../coupons/CouponFilter";
 import { useQueryClient } from "@tanstack/react-query";
-import EmptyView from "../../ui/EmptyView";
+import EmptyView from "../../components/EmptyView";
 function CustomerInfo() {
   const { isLoading, info } = useCustomerInfo();
   const queryClient = useQueryClient();

@@ -1,7 +1,7 @@
 import { useCompanies } from "./companies/useCompanies";
 import { useCustomers } from "./customers/useCustomers";
-import Loader from "../../ui/Loader";
-import Button from "../../ui/Button";
+import Loader from "../../components/Loader";
+import Button from "../../components/Button";
 
 function Dashboard() {
   const { isLoadingCompanies, companies } = useCompanies();

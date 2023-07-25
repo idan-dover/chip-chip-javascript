@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useCreateCompany from "./useCreateCompany";
 import { validateEmail } from "../../../utils/expressions";
-import Button from "../../../ui/Button";
+import Button from "../../../components/Button";
 
 function CreateCompanyForm() {
   const { createCompany, isLoading } = useCreateCompany();

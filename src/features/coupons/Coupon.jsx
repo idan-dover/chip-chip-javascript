@@ -1,9 +1,9 @@
 import { createContext, useContext } from "react";
-import Card from "../../ui/Card";
+import Card from "../../components/Card";
 import { convertSQLDateToNormalDate } from "../../utils/dates";
-import Button from "../../ui/Button";
+import Button from "../../components/Button";
 import usePurchase from "../customer/usePurchase";
-import Modal from "../../ui/Modal";
+import Modal from "../../components/Modal";
 import { FaCartShopping, FaPen, FaTrashCan } from "react-icons/fa6";
 import UpdateCouponForm from "../company/UpdateCouponForm";
 import useDeleteCoupon from "../company/useDeleteCoupon";

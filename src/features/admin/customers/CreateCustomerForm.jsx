@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import Button from "../../../ui/Button";
+import Button from "../../../components/Button";
 import { validateEmail } from "../../../utils/expressions";
 import useCreateCustomer from "./useCreateCustomer";
 
