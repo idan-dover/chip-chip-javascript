@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useCreateCustomer from "./useCreateCustomer";
 import Form from "../../../components/Form";
-import customerSchema from "../../../libs/zodSchemas/customerSchema";
+import customerSchema from "../../../libs/zodSchemas/CustomerSchema";
 
 function CreateCustomerForm() {
   const { createCustomer } = useCreateCustomer();
