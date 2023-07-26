@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import page404Png from "../assets/page404.png";
 import { FaArrowRight } from "react-icons/fa6";
+import LinkButton from "../components/LinkButton";
 
 function Page404() {
   return (
@@ -14,13 +14,10 @@ function Page404() {
           alt="empty-view"
           className="max-w-50vw h-auto max-h-[70vh]"
         />
-        <Link
-          className="flex items-center justify-center space-x-2 text-blue-600 underline dark:text-blue-400"
-          to="/home"
-        >
+        <LinkButton to="/home">
           <FaArrowRight />
           <span>back to home page</span>
-        </Link>
+        </LinkButton>
       </div>
     </div>
   );

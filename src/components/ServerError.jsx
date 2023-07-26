@@ -1,24 +1,24 @@
-import emptyView from "../assets/empty-view.png";
 import { FaArrowRight } from "react-icons/fa6";
+import serverError from "../assets/server-error.png";
 import LinkButton from "./LinkButton";
 
-function EmptyView({ linkTo, linkText }) {
+function ServerError() {
   return (
     <div className="flex flex-col items-center justify-center px-3 py-5 mx-2 my-3">
       <h1 className="px-3 py-3 font-serif text-3xl text-amber-500 text-md dark:text-amber-300">
-        Chip Chip, seems like you don&apos;t have any coupons in here
+        Sorry, but it seems we have a problem with our server
       </h1>
       <img
-        src={emptyView}
+        src={serverError}
         alt="empty-view"
         className="max-w-50vw h-auto max-h-[30vh]"
       />
-      <LinkButton to={linkTo}>
+      <LinkButton to="/home">
         <FaArrowRight />
-        <span>{linkText}</span>
+        <span>back home</span>
       </LinkButton>
     </div>
   );
 }
 
-export default EmptyView;
+export default ServerError;

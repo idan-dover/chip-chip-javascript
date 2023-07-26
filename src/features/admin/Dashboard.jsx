@@ -2,10 +2,23 @@ import { useCompanies } from "./companies/useCompanies";
 import { useCustomers } from "./customers/useCustomers";
 import Loader from "../../components/Loader";
 import Button from "../../components/Button";
+import ServerError from "../../components/ServerError";
 
 function Dashboard() {
-  const { isLoadingCompanies, companies } = useCompanies();
-  const { isLoadingCustomers, customers } = useCustomers();
+  const {
+    isLoadingCompanies,
+    companies,
+    error: errorFetchingCompanies,
+  } = useCompanies();
+  const {
+    isLoadingCustomers,
+    customers,
+    error: errorFetchingCustomers,
+  } = useCustomers();
+
+  if (errorFetchingCompanies || errorFetchingCustomers) {
+    return <ServerError />;
+  }
 
   if (isLoadingCompanies || isLoadingCustomers) {
     return <Loader variation="area" />;

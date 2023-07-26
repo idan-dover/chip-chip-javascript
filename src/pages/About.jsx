@@ -1,13 +1,13 @@
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import LinkButton from "../components/LinkButton";
+import StackList from "../components/StackList";
+import Title from "../components/Title";
 
 function About() {
   return (
     <div className="w-screen h-screen bg-gray-100 dark:bg-gray-800">
       <div className="flex flex-col items-center justify-center px-3 py-5">
-        <h1 className="px-3 py-3 font-serif text-2xl text-amber-500 dark:text-amber-300">
-          Hello, my name is Idan Dover
-        </h1>
+        <Title>Hello, my name is Idan Dover</Title>
         <p className="px-3 py-3 font-serif text-lg text-gray-800 dark:text-gray-50">
           I am a junior full stack developer and I hope you like my small coupon
           project
@@ -19,50 +19,23 @@ function About() {
         <p className="px-3 py-3 font-serif text-lg text-gray-800 dark:text-gray-50">
           I have learned in John Bryce and my skills are:
         </p>
-        <ul>
-          <li className="font-serif text-lg text-lime-500 dark:text-lime-300">
-            java
-          </li>
-          <li className="font-serif text-lg text-lime-500 dark:text-lime-300">
-            spring framework
-          </li>
-          <li className="font-serif text-lg text-lime-500 dark:text-lime-300">
-            react
-          </li>
-          <li className="font-serif text-lg text-lime-500 dark:text-lime-300">
-            javascript
-          </li>
-          <li className="font-serif text-lg text-lime-500 dark:text-lime-300">
-            typescript
-          </li>
-          <li className="font-serif text-lg text-lime-500 dark:text-lime-300">
-            SQL databases
-          </li>
-        </ul>
+        <StackList />
         <div className="flex items-center justify-center py-3 m-3 space-x-3">
-          <Link
-            className="flex items-center justify-center space-x-2 text-blue-600 underline dark:text-blue-400"
-            to="/home"
-          >
+          <LinkButton to="/home">
             <FaArrowRight />
             <span>back to home page</span>
-          </Link>
-          <Link
-            className="flex items-center justify-center space-x-2 text-blue-600 underline dark:text-blue-400"
-            target="_blank"
-            to="https://github.com/IdanDover"
-          >
+          </LinkButton>
+          <LinkButton target="_blank" to="https://github.com/IdanDover">
             <FaGithub />
             <span>To my github</span>
-          </Link>
-          <Link
-            className="flex items-center justify-center space-x-2 text-blue-600 underline dark:text-blue-400"
+          </LinkButton>
+          <LinkButton
             target="_blank"
             to="https://www.linkedin.com/in/idan-dover/"
           >
             <FaLinkedin />
             <span>to my linkedInn</span>
-          </Link>
+          </LinkButton>
         </div>
       </div>
     </div>

@@ -4,13 +4,18 @@ import { useCustomerUnsold } from "./useCustomerUnsold";
 import CouponFilter from "../coupons/CouponFilter";
 import CouponList from "../coupons/CouponList";
 import EmptyView from "../../components/EmptyView";
+import ServerError from "../../components/ServerError";
 
 function CustomerUnsoldCoupons() {
-  const { isLoading, unSoldCoupons } = useCustomerUnsold();
+  const { isLoading, unSoldCoupons, error } = useCustomerUnsold();
   const queryClient = useQueryClient();
 
   if (isLoading) {
     return <Loader />;
+  }
+
+  if (error) {
+    return <ServerError />;
   }
 
   queryClient.setQueryData(["coupons"], unSoldCoupons);

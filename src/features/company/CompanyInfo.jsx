@@ -4,14 +4,20 @@ import Loader from "../../components/Loader";
 import CouponFilter from "../coupons/CouponFilter";
 import CouponList from "../coupons/CouponList";
 import EmptyView from "../../components/EmptyView";
+import ServerError from "../../components/ServerError";
 
 function CompanyInfo() {
-  const { isLoading, info } = useCompanyInfo();
+  const { isLoading, info, error } = useCompanyInfo();
   const queryClient = useQueryClient();
 
   if (isLoading) {
     return <Loader variation="area" />;
   }
+
+  if (error) {
+    return <ServerError />;
+  }
+
   const { name, coupons } = info;
 
   if (coupons.length === 0) {

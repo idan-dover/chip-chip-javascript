@@ -3,12 +3,17 @@ import Button from "../../../components/Button";
 import Loader from "../../../components/Loader";
 import CompaniesTable from "./CompaniesTable";
 import { useCompanies } from "./useCompanies";
+import ServerError from "../../../components/ServerError";
 
 function Companies() {
-  const { isLoadingCompanies, companies } = useCompanies();
+  const { isLoadingCompanies, companies, error } = useCompanies();
   const navigate = useNavigate();
   if (isLoadingCompanies) {
     return <Loader variation="area" />;
+  }
+
+  if (error) {
+    return <ServerError />;
   }
 
   return (

@@ -3,12 +3,18 @@ import Button from "../../../components/Button";
 import Loader from "../../../components/Loader";
 import useCustomers from "./useCustomers";
 import CustomersTable from "./CustomersTable";
+import ServerError from "../../../components/ServerError";
 
 function Customers() {
-  const { isLoadingCustomers, customers } = useCustomers();
+  const { isLoadingCustomers, customers, error } = useCustomers();
   const navigate = useNavigate();
+
   if (isLoadingCustomers) {
     return <Loader variation="area" />;
+  }
+
+  if (error) {
+    return <ServerError />;
   }
 
   return (
