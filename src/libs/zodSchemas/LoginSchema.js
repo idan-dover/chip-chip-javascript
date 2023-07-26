@@ -12,7 +12,6 @@ const loginSchema = z.object({
     .nonempty("this field is required")
     .min(4, "Password should be at least 4 characters long")
     .max(50, "Password should not exceed 50 characters"),
-  clientType: z.enum(["CUSTOMER", "COMPANY", "ADMIN"]),
 });
 
 export default loginSchema;

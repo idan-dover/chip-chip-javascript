@@ -18,7 +18,7 @@ function Companies() {
 
   return (
     <div className="px-3 py-2">
-      <CompaniesTable companies={companies} />;
+      <CompaniesTable companies={companies} />
       <div className="flex justify-end">
         <Button
           variation="primary"

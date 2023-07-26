@@ -4,24 +4,15 @@ import { convertSQLDateToNormalDate } from "../../utils/dates";
 import Button from "../../components/Button";
 import usePurchase from "../customer/usePurchase";
 import Modal from "../../components/Modal";
-import { FaCartShopping, FaPen, FaTrashCan } from "react-icons/fa6";
+import { FaCartShopping } from "react-icons/fa6";
 import UpdateCouponForm from "../company/UpdateCouponForm";
 import useDeleteCoupon from "../company/useDeleteCoupon";
+import ModalDelete from "../../components/ModalDelete";
+import ModalUpdate from "../../components/ModalUpdate";
 
 const CouponContext = createContext();
 
 function Coupon({ coupon, children }) {
-  //   const {
-  //     category,
-  //     title,
-  //     description,
-  //     startDate,
-  //     endDate,
-  //     image,
-  //     price,
-  //     amount,
-  //   } = coupon;
-
   return (
     <CouponContext.Provider value={coupon}>
       <Card>{children}</Card>
@@ -131,54 +122,13 @@ function Edit() {
   const coupon = useContext(CouponContext);
 
   return (
-    <Modal>
-      <div className="flex items-center justify-end">
-        <Modal.Open opens="update">
-          <div className="px-3 py-2">
-            <Button
-              variation="round"
-              onClick={() => {
-                return;
-              }}
-            >
-              <FaPen />
-            </Button>
-          </div>
-        </Modal.Open>
-        <Modal.Open opens="delete">
-          <div className="px-3 py-2">
-            <Button
-              variation="round"
-              onClick={() => {
-                return;
-              }}
-            >
-              <FaTrashCan />
-            </Button>
-          </div>
-        </Modal.Open>
-      </div>
-      <Modal.Window name="update">
-        <UpdateCouponForm coupon={coupon} />
-      </Modal.Window>
-      <Modal.Window name="delete">
-        <div className="px-3 py-2 ml-auto">
-          <p className="px-3 py-2 font-mono text-gray-800 text-md dark:text-gray-50">
-            Are you sure you want to delete this coupon?
-          </p>
-          <p className="px-3 py-4 font-mono text-red-800 text-md dark:text-red-300">
-            These changes are permanent
-          </p>
-          <Button
-            variation="round"
-            onClick={() => remove(coupon.id)}
-            disabled={isLoading}
-          >
-            yes
-          </Button>
-        </div>
-      </Modal.Window>
-    </Modal>
+    <div className="flex items-center justify-end space-x-2">
+      <ModalDelete disabled={isLoading} removeFunc={() => remove(coupon.id)} />
+      <ModalUpdate
+        disabled={isLoading}
+        render={<UpdateCouponForm coupon={coupon} />}
+      />
+    </div>
   );
 }
 

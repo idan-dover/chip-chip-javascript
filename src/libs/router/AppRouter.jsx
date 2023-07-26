@@ -5,6 +5,13 @@ import Home from "../../pages/Home";
 import ProtectedRoute from "./ProtectedRoute";
 
 const Login = lazy(() => import("../../pages/Login"));
+const Register = lazy(() => import("../../pages/Register"));
+const RegisterCustomerForm = lazy(() =>
+  import("../../features/auth/RegisterCustomerForm")
+);
+const RegisterCompanyForm = lazy(() =>
+  import("../../features/auth/RegisterCompanyForm")
+);
 const Page404 = lazy(() => import("../../pages/Page404"));
 const About = lazy(() => import("../../pages/About"));
 const AppLayout = lazy(() => import("../../components/AppLayout"));
@@ -41,6 +48,10 @@ function AppRouter() {
           <Route path="/" element={<Navigate replace to="home" />} />
           <Route path="home" element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />}>
+            <Route path="customer" element={<RegisterCustomerForm />} />
+            <Route path="company" element={<RegisterCompanyForm />} />
+          </Route>
           <Route path="about" element={<About />} />
 
           <Route

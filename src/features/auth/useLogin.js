@@ -9,7 +9,7 @@ function useLogin() {
   const { mutate: loginToApp, isLoading } = useMutation({
     mutationFn: login,
     onSuccess: (user) => {
-      toast.success("Chip chip, welcome back");
+      toast.success("Chip chip, Happy to see you");
       switch (user.clientType) {
         case "CUSTOMER":
           navigate("/customer");

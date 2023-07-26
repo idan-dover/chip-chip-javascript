@@ -20,9 +20,14 @@ function Header() {
           {theme === "light" ? <FaSun /> : <FaMoon />}
         </Button>
         {!userType && (
-          <Button to="/login" variation="primary">
-            <span>Login</span>
-          </Button>
+          <>
+            <Button to="/login" variation="primary">
+              <span>Login</span>
+            </Button>
+            <Button to="/register/customer" variation="primary">
+              <span>register</span>
+            </Button>
+          </>
         )}
         {userType === "CUSTOMER" && <CustomerHeader />}
         {userType === "COMPANY" && <CompanyHeader />}
