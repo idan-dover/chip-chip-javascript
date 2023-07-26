@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://coupon-system-spring-production.up.railway.app/api",
   timeout: 1000,
 });
 
@@ -36,7 +36,7 @@ function getToken() {
 }
 
 const axiosAuthInstance = axios.create({
-  baseURL: "http://localhost:8080/api/auth",
+  baseURL: "https://coupon-system-spring-production.up.railway.app/api/auth",
   timeout: 1000,
 });
 
