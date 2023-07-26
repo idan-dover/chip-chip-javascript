@@ -17,8 +17,8 @@ function AppToaster() {
           fontSize: "16px",
           maxWidth: "500px",
           padding: "16px 24px",
-          backgroundColor: "#c8d165",
-          color: "#ffffff",
+          backgroundColor: "#fbbf24",
+          color: "#f9fafb",
         },
       }}
     />

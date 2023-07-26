@@ -22,8 +22,8 @@ function LoginForm() {
         ]}
       />
       <Form.Buttons>
-        <Form.CancelButton />
-        <Form.SubmitButton />
+        <Form.CancelButton btnText="clear" />
+        <Form.SubmitButton btnText="login" />
       </Form.Buttons>
     </Form>
   );
