@@ -1,5 +1,5 @@
 import Form from "../../../components/Form";
-import customerSchema from "../../../libs/zodSchemas/customerSchema";
+import customerSchema from "../../../libs/zodSchemas/CustomerSchema";
 import useUpdateCustomer from "./useUpdateCustomer";
 
 function UpdateCustomerForm({ customer }) {
