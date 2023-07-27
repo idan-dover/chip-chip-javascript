@@ -15,7 +15,7 @@ export const registerCompanySchema = z
     password: z
       .string()
       .nonempty("This field is required")
-      .min(4, "Password should be at least 4 characters long")
+      .min(8, "Password should be at least 8 characters long")
       .max(50, "Password should not exceed 50 characters"),
     confirmPassword: z.string().nonempty("This field is required"),
   })
@@ -43,7 +43,7 @@ export const registerCustomerSchema = z
     password: z
       .string()
       .nonempty("This field is required")
-      .min(4, "Password should be at least 4 characters long")
+      .min(8, "Password should be at least 8 characters long")
       .max(50, "Password should not exceed 50 characters"),
     confirmPassword: z.string().nonempty("This field is required"),
   })

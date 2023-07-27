@@ -12,7 +12,7 @@ const customerSchema = z.object({
   password: z
     .string()
     .nonempty("this field is required")
-    .min(4, "Password should be at least 4 characters long")
+    .min(8, "Password should be at least 8 characters long")
     .max(50, "Password should not exceed 50 characters"),
 });
 
