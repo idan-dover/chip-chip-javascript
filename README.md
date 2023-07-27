@@ -1,6 +1,6 @@
 # Chip-Chip
 
-my front end for a dummy coupon website
+my front end for a dummy coupon website built with react
 
 to see the website simply go to ▶ https://chip-chip.netlify.app/
 
